@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+{% block title %}CodingColon - Home{% endblock title%} 
+{% block homeactive%} active {% endblock homeactive %} 
+{% block body %}
+<div class="container my-4" style="width: 100; display: flex; justify-content: center; align-items: center;">
+  <div class="card"> 
+    <div class="card-body">
+      <h5 class="display-6">Welcome to CodingColon!</h5>
+      <p class="lead">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+      <hr class="my-4" />
+      <a href="blog" class="btn btn-primary">Go to Blog</a>
+    </div>
+  </div>
+</div>
+
+
+{% comment %} <div class="py-5 text-center">
+  <h2>Checkout our Articles</h2>
+  <p class="lead">We are sure you'll love our articles.</p>
+  <p>Keep Readng</p>
+</div>
+{ {% endcomment %}
+
+<div class="container my-3">
+<h2>Popular Posts:</h2>
+<div class="col-md-6">
+  {% for post in posts %}
+      <div class="row g-0 border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Article By {{recent.author}}</strong>
+          <h3 class="mb-0">{{recent.title}}</h3>
+          <div class="mb-1 text-muted">{{recent.datetime}}</div>
+          <p class="card-text mb-auto">{{ recent.content| truncatechars:180 }}</p>
+          <div>
+          <a href="/blog/{{recent.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+          </div class="my-2">
+        </div>
+        <div class="col-auto d-none d-lg-block">
+                </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+ {% endblock body %}
